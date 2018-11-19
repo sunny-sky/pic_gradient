@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图片渐变</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="">
+            <h1 class="text-center">渐变相册</h1>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="text-center">
+            <img class="" src="https://cn.vuejs.org/images/logo.png">
+        </div>
+        <div id="img1" class="text-center">
+            <img :src="url"><br>
+            <button @click="changeImg">变变变</button>
+            <!--<img src="/1.bmp" class="img-rounded img1">-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="text-center">
+        <!--<img src="/1.bmp" class="img-thumbnail" width="304" height="236">-->
+        <!--<img src="/7.bmp" class="img-thumbnail" width="304" height="236">-->
+    </div>
+</div>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#img1",
+        data: {
+            url: 'https://cn.vuejs.org/images/gitee.png'
+        },
+        methods: {
+            changeImg: function () {
+                this.url = this.url === 'https://cn.vuejs.org/images/gitee.png' ? 'https://cn.vuejs.org/images/logo.png' : 'https://cn.vuejs.org/images/gitee.png'
+            }
+        },
+        mounted() {
+            setInterval(this.changeImg, 1000);
+        }
+    })
+</script>
+</body>
+
+</html>
