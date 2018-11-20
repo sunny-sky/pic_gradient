@@ -19,6 +19,12 @@ public class JNITest {
 
         System.loadLibrary("homework");
         JNITest jniTest = new JNITest();
-        jniTest.myMain("D:\\workspace\\idea\\pic_gradient\\src\\main\\resources\\static\\images\\photo1");
+        jniTest.myMain("D:\\workspace\\idea\\pic_gradient\\src\\main\\resources\\static\\images\\photo2");
+    }
+
+    public static void generateImg(String path) {
+        System.loadLibrary("homework");
+        JNITest jniTest = new JNITest();
+        jniTest.myMain(path);
     }
 }
