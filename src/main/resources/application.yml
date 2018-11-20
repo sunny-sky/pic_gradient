@@ -6,6 +6,3 @@ spring:
     password: admin
 server:
   port: 8081
-spring:
-  resources:
-    static-locations: file:D:\workspace\idea\pic_gradient\src\main\resources\static\
