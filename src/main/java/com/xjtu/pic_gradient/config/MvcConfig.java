@@ -14,6 +14,7 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers (ViewControllerRegistry registry) {
         // 使/test指向test页面
         registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/photo").setViewName("photo");
     }
 
 
