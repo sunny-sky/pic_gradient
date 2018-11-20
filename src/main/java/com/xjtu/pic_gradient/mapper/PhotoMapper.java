@@ -27,6 +27,4 @@ public interface PhotoMapper {
     int updateByExampleSelective(@Param("record") Photo record, @Param("example") PhotoExample example);
 
     int updateByExample(@Param("record") Photo record, @Param("example") PhotoExample example);
-
-    String selectByID();
 }
