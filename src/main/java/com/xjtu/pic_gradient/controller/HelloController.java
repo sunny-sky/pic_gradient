@@ -22,8 +22,9 @@ import java.util.Map;
 @Controller
 @MapperScan(value="com.xjtu.pic_gradient.mapper")
 public class HelloController {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
-    PhotoMapper photoMapper;
+    private PhotoMapper photoMapper;
 
     @RequestMapping("/index")
     public String index2(@RequestParam(value = "name", defaultValue = "photo1") String name, Map<String, String> map) {
