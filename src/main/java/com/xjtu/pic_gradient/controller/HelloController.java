@@ -29,7 +29,7 @@ public class HelloController {
     @RequestMapping("/index")
     public String index2(@RequestParam(value = "name", defaultValue = "photo1") String name, Map<String, String> map) {
         map.put("albumName", name);
-        return "/index";
+        return "index";
     }
 
     @ResponseBody
@@ -61,7 +61,7 @@ public class HelloController {
         System.out.println("保存成功");
         JNITest.generateImg(path);
 
-        return "/index?name="+name;
+        return "redirect:index?name="+name;
     }
 
     private boolean isExist(String path) {

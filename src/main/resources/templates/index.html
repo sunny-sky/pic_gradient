@@ -45,12 +45,11 @@
     <div class="row">
         <div class="col-lg-6 text-right">
             <h3>图片1</h3>
-            <img src="/images/photo1/00.bmp" class="img-thumbnail" width="304" height="236">
-
+            <img th:src="@{images/{albumName}/00.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
         </div>
         <div class="col-lg-6">
             <h3>图片2</h3>
-            <img src="/images/photo1/64.bmp" class="img-thumbnail" width="304" height="236">
+            <img th:src="@{images/{albumName}/64.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
         </div>
     </div>
     <br><br><br>
@@ -89,9 +88,9 @@
     setInterval(function () {
         var str;
         if (imgNum < 10) {
-            str = "/images/"+[[${albumName}]]+"/0" + imgNum + ".bmp";
+            str = "images/"+[[${albumName}]]+"/0" + imgNum + ".bmp";
         } else {
-            str = "/images/"+[[${albumName}]]+"/" + imgNum + ".bmp";
+            str = "images/"+[[${albumName}]]+"/" + imgNum + ".bmp";
         }
         $(".img1").attr("src", str);
         if (imgNum < 64 && tag === 0) {
