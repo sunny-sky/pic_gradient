@@ -3,7 +3,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/photo?useSSL=false
     username: root
-    password: admin
+#    password: admin
+    password: 191903
 
 server:
     port: 8081

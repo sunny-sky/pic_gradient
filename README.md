@@ -6,7 +6,7 @@
 ## 2. 介绍
 &#160; &#160; &#160; &#160;渐变相册项目是一个基于Springboot的JAVAweb项目，其主要功能是可实现两张图片之间渐变转换。计算过程使用SSE指令和多线程技术进行加速，该部分使用C++实现，并封装成dll动态链接库，通过JNI由项目调用。
 
-&#160; &#160; &#160; &#160;项目涉及技术、工具有：Springboot、thymeleaf、JNI、SSE、多线程、Mybatis、MySQL、Jquery、Bootstrap。
+&#160; &#160; &#160; &#160;项目涉及技术、工具有：Springboot、thymeleaf、JNI、SSE、多线程、Mybatis、MySQL、CSS3、Jquery、Bootstrap。
 
 &#160; &#160; &#160; &#160;主要功能有：
 
