@@ -17,8 +17,6 @@ import javax.servlet.MultipartConfigElement;
 @Configuration
 public class WebAppConfig implements WebMvcConfigurer {
 
-
-
     @Bean
     public MultipartConfigElement multipartConfigElement(){
         MultipartConfigFactory factory = new MultipartConfigFactory();
@@ -31,10 +29,7 @@ public class WebAppConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
-        //文件磁盘图片url 映射
-        //配置server虚拟路径，handler为前台访问的目录，locations为files相对应的本地路径
-        registry.addResourceHandler("/images/**").addResourceLocations("file:C:\\Users\\42238\\Desktop\\1\\images\\");
+        registry.addResourceHandler("/images/**").addResourceLocations("file:E:\\IDEA\\IntelliJ IDEA 2018.2\\workspace\\pic_gradient\\src\\main\\resources\\static\\images\\");
     }
 
 }

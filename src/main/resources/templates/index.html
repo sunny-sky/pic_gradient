@@ -78,13 +78,32 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/index?name=photo1">photo1</a></li>
-                        <li><a href="/index?name=photo2">photo2</a></li>
-                        <li><a href="/index?name=photo3">photo3</a></li>
-                        <li><a href="/index?name=photo4">photo4</a></li>
-                        <li><a href="/index?name=photo5">photo5</a></li>
+                        <div th:each="photoName:${photoNames}">
+                            <li><a th:href="@{'/index?name='+${photoName}}" th:utext="${photoName}"></a></li>
+                        </div>
+                        <!--<li><a href="/index?name=${photoName}">photo1</a></li>-->
+                    </ul>
+<!--                    <li>Map循环：
+                        <div th:each="photoName:${photoNames}">
+                            <div th:text="${photoName}">${photoName}</div>
+                        </div>
+                    </li>-->
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        删除相册
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <div th:each="photoName:${photoNames}">
+                            <li><a th:href="@{'/delete?name='+${photoName}}" th:utext="${photoName}"></a></li>
+                        </div>
+                        <!--<li><a href="/index?name=${photoName}">photo1</a></li>-->
                     </ul>
                 </li>
+
                 <li><a href="#">登录</a></li>
             </ul>
         </div>
@@ -108,7 +127,7 @@
             <h3>图片1</h3>
             <img th:src="@{images/{albumName}/00.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 ">
             <h3>图片2</h3>
             <img th:src="@{images/{albumName}/64.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
         </div>
