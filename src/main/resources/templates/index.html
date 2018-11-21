@@ -6,9 +6,66 @@
     <script src="webjars/jquery/2.1.1/jquery.min.js"></script>
     <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <style type="text/css">
+        * { margin: 0; padding: 0; border: 0; }
+        html,body{
+            margin: 0;
+        }
+        @-webkit-keyframes STAR-MOVE {
+            from {
+                background-position:0% 0%
+            }
+            to {
+                background-position: 600% 0%
+            }
+        }
+        @keyframes STAR-MOVE {
+            from {
+                background-position: 0% 0%
+            }
+            to {
+                background-position: 600% 0%
+            }
+        }
+        .wall{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+        div#background{
+            background: black url('img/background.png') repeat-x 5% 0%;
+            background-size: cover;
+            z-index: 0;
+            -webkit-animation: STAR-MOVE  200s linear infinite;
+            -moz-animation: STAR-MOVE  200s linear infinite;
+            -ms-animation: STAR-MOVE  200s linear infinite;
+            animation: STAR-MOVE  200s linear infinite;
+        }
+        div#midground{
+            background:url('img/midground.png')repeat 20% 0%;
+            z-index: 1;
+            -webkit-animation: STAR-MOVE  100s linear infinite;
+            -moz-animation: STAR-MOVE  100s linear infinite;
+            -ms-animation: STAR-MOVE  100s linear infinite;
+            animation: STAR-MOVE  100s linear infinite;
+        }
+        div#foreground{
+            background:url('img/foreground.png')repeat 35% 0%;
+            z-index: 2;
+            -webkit-animation: STAR-MOVE  50s linear infinite;
+            -moz-animation: STAR-MOVE  50s linear infinite;
+            -ms-animation: STAR-MOVE  50s linear infinite;
+            animation: STAR-MOVE  50s linear infinite;
+        }
+    </style>
+
 </head>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation" style="z-index:3; position:relative">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="">渐变相册</a>
@@ -35,14 +92,18 @@
 </nav>
 <br>
 <div class="container">
-    <div class="row">
-        <div class="center-block text-center">
+    <div id="background" class="wall" style="z-index: 0;"></div>
+    <div id="midground" class="wall" style="z-index:1"></div>
+    <div id="foreground" class="wall" style="z-index:2"></div>
+
+    <div class="row" style="z-index:3; position:relative">
+        <div class="text-center">
             <h3 class="text-center">结果展示</h3>
             <img src="" class="img-rounded img1">
         </div>
     </div>
     <br><br><br>
-    <div class="row">
+    <div class="row" style="z-index:3">
         <div class="col-lg-6 text-right">
             <h3>图片1</h3>
             <img th:src="@{images/{albumName}/00.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
@@ -53,7 +114,7 @@
         </div>
     </div>
     <br><br><br>
-    <div class="row">
+    <div class="row" style="z-index:3;position:relative">
         <div class="text-center">
             <form role="form" th:action="@{/uploadImg}" method="post" enctype="multipart/form-data" class="text-center">
                 <div class="form-group">
@@ -107,6 +168,9 @@
         }
 
     }, 50);
+
+
+
 </script>
 </body>
 
