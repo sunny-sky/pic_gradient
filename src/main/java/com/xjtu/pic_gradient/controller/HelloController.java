@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class HelloController {
     public String uploadImg(@RequestParam("img1") MultipartFile multipartFile1,
                             @RequestParam("img2") MultipartFile multipartFile2,
                             @RequestParam("name") String name) throws IOException, InterruptedException {
-        String path = "D:\\workspace\\idea\\pic_gradient\\src\\main\\resources\\static\\images\\" + name;
+        String path = "C:\\Users\\42238\\Desktop\\1\\images\\" + name;
         System.out.println(path);
         SaveImg.saveImg(multipartFile1, path, "00.bmp");
         SaveImg.saveImg(multipartFile2, path, "64.bmp");

@@ -4,5 +4,13 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/photo
     username: root
     password: admin
+#  servlet:
+#    multipart:
+#      location: C:/Users/42238/Desktop/1
+#  resources:
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/, C:/Users/42238/Desktop/1
+
+
 server:
   port: 8081
+
