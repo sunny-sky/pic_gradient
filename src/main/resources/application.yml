@@ -1,11 +1,31 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/photo
+    url: jdbc:mysql://127.0.0.1:3306/photo?useSSL=false
     username: root
     password: admin
-server:
-  port: 8081
-spring:
+  servlet:
+    multipart:
+        location: D:/crowd-funding/media/
   resources:
-    static-locations: file:D:\workspace\idea\pic_gradient\src\main\resources\static\
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/, file:${spring.servlet.multipart.location}
+
+server:
+    port: 8080
+#  servlet:
+#    context-path: E:\\IDEA\\IntelliJ IDEA 2018.2\\workspace\\pic_gradient\\src\\main\\resources\\static\\
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/photo
+#    username: root
+#    password: admin
+#
+#  servlet:
+#    multipart:
+#      location: D:/crowd-funding/media/
+#  resources:
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/, file:${spring.servlet.multipart.location}
+
+

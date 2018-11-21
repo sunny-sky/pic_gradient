@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图片渐变</title>
+    <script src="webjars/jquery/2.1.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">渐变相册</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        选择已有相册
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <div th:each="photoName:${photoNames}">
+                            <li><a th:href="@{'/index?name='+${photoName}}" th:utext="${photoName}"></a></li>
+                        </div>
+                        <!--<li><a href="/index?name=${photoName}">photo1</a></li>-->
+                    </ul>
+<!--                    <li>Map循环：
+                        <div th:each="photoName:${photoNames}">
+                            <div th:text="${photoName}">${photoName}</div>
+                        </div>
+                    </li>-->
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        删除相册
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <div th:each="photoName:${photoNames}">
+                            <li><a th:href="@{'/delete?name='+${photoName}}" th:utext="${photoName}"></a></li>
+                        </div>
+                        <!--<li><a href="/index?name=${photoName}">photo1</a></li>-->
+                    </ul>
+                </li>
+
+                <li><a href="#">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="center-block text-center">
+            <h3 class="text-center">结果展示</h3>
+            <img src="" class="img-rounded img1">
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="col-lg-6 text-right">
+            <h3>图片1</h3>
+            <img th:src="@{images/{albumName}/00.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
+        </div>
+        <div class="col-lg-6 ">
+            <h3>图片2</h3>
+            <img th:src="@{images/{albumName}/64.bmp(albumName=${albumName})}" class="img-thumbnail" width="304" height="236">
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="text-center">
+            <form role="form" th:action="@{/uploadImg}" method="post" enctype="multipart/form-data" class="text-center">
+                <div class="form-group">
+                    <label class="col-lg-2 col-lg-offset-4">选择图片1</label>
+                    <div class="col-lg-6 text-left">
+                        <input type="file" name="img1"/>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-lg-2 col-lg-offset-4">选择图片2</label>
+                    <div class="col-lg-6 text-left">
+                        <input type="file" name="img2"/>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-lg-2 col-lg-offset-4">输入相册名</label>
+                    <div class="col-lg-6 text-left">
+                        <input type="text" name="name"/>
+                    </div>
+                </div>
+                <br>
+                <input id="submit" type="submit" class="btn btn-success save" value="上传"/>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    var imgNum = 0;
+    var tag = 0;
+    setInterval(function () {
+        var str;
+        if (imgNum < 10) {
+            str = "images/"+[[${albumName}]]+"/0" + imgNum + ".bmp";
+        } else {
+            str = "images/"+[[${albumName}]]+"/" + imgNum + ".bmp";
+        }
+        $(".img1").attr("src", str);
+        if (imgNum < 64 && tag === 0) {
+            imgNum++;
+        }
+        if (imgNum > 0 && tag === 1) {
+            imgNum--;
+        }
+        if (imgNum === 64) {
+            tag = 1;
+        }
+        if (imgNum === 0) {
+            tag = 0;
+        }
+
+    }, 50);
+</script>
+</body>
+
+</html>
