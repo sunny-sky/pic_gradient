@@ -32,6 +32,13 @@ for (int i = 0; i < n; i++) {
 
 ### 3.2 多线程实现
 
+``` cpp
+    std::thread th[2];
+    th[0] = std::thread(solve, l, m, gPBmpBuf, bmp);
+    th[1] = std::thread(solve, m, r, gPBmpBuf, bmp);
+    th[0].join(), th[1].join();
+```
+
 ### 3.3 生成dll动态库
 &#160; &#160; &#160; &#160;通过JNI(Java Native Interface)相关技术生成并调用dll动态库，调用dll类如下：
 
