@@ -65,4 +65,3 @@ public class JNITest {
 &#160; &#160; &#160; &#160;使用Springboot推荐的Thymeleaf模板，结合
 JQuery、Bootstrap技术，构建前端网页，用以展示图片的渐变效果。
 
-## 4. 总结
